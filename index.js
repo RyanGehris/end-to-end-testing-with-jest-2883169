@@ -1,3 +1,5 @@
+/* eslint-disable func-names */
+/* eslint-disable no-unused-vars */
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
@@ -18,11 +20,8 @@ app.use(express.json());
 
 app.use('/', routes);
 
-const config = {
-  port: process.env.PORT || 8080,
+const initializeApp = function () {
+  return app;
 };
-
-app.listen(config.port, () => {
-  // eslint-disable-next-line no-console
-  console.log('Express server listening on port', config.port);
-});
+const theApp = initializeApp();
+module.exports = theApp;
